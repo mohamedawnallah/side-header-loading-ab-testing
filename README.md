@@ -19,7 +19,7 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 
 📌 **Note:** Block filters located in `filters_db/filter-store/regular/<block_hashes>` index are populated during a [`Rescan`](https://github.com/lightninglabs/neutrino?tab=readme-ov-file#rescan) only if the `PersistToDisk` configuration parameter is set to true (default: false) otherwise only the regular block filter tip exist.
 
-📌 **Note to Self** For simplicity, let’s ignore the block filter dimension in the main table `filters_db/filter-store/regular/<block_hash>` during A/B testing.
+📌 **Note to Self:** For simplicity, let’s ignore the block filter dimension in the main table `filters_db/filter-store/regular/<block_hash>` during A/B testing.
 We only need to ensure that the block hash from the regular best blockchain is present as a key in the `filter-store/regular` index, with its value being the corresponding block filter which is variable in size.
 
 ## Hypotheses Regarding Side Loading of Block AND Filter Headers
