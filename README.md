@@ -17,9 +17,6 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 | 10 | ❌                                 | ❌                            | –                       | –                       | Removing Middle Header from both stores | Removing Filter Header from store | `OK`  and that Mid Filter header should be computed and indexed automatically | –                     |
 | 11 | ✔️                                 | ✔️                            | ❌                      | ❌                      | Header exists in both | – | `OK` | Accepted            |
 
-## Hypotheses Regarding `filters_db/regular/filter-store` and `regular_filter_headers_bin`
-
-
 ## Hypotheses Regarding Side Loading of Block AND Filter Headers
 
 ## Conclusions
