@@ -17,7 +17,7 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 | 10 | ❌                                       | ❌                                  | ❌                                              | ❌                                      | –                                   | –                                   | Removing Middle Header from both stores | Removing Filter Header from store | `OK` and that Mid Filter header should be computed and indexed automatically | –                     |
 | 11 | ✔️                                       | ✔️                                  | ✔️                                              | ✔️                                      | ❌                                  | ❌                                  | Header exists in both | – | `OK` | Accepted            |
 
-📌 **Note:** Block filters located in [filters_db/filter-store/regular/<block_hashes>](https://github.com/lightninglabs/neutrino?tab=readme-ov-file#rescan) are populated during a Rescan only if the `PersistToDisk` configuration parameter is set to true (default: false) otherwise only the regular block filter tip exist.
+📌 **Note:** Block filters located in `filters_db/filter-store/regular/<block_hashes>` index are populated during a [`Rescan`](https://github.com/lightninglabs/neutrino?tab=readme-ov-file#rescan) only if the `PersistToDisk` configuration parameter is set to true (default: false) otherwise only the regular block filter tip exist.
 
 ## Hypotheses Regarding Side Loading of Block AND Filter Headers
 
