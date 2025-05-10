@@ -1,7 +1,7 @@
 # Side-Header Loading A/B Testing Experiments
 This repository serves as a knowledge base documenting my A/B testing experiments. Here, I explore and evaluate various hypotheses, recording methodologies, results, and insights gained throughout the process.
 
-## Hypotheses Across `filters_db/header-index` and `block_headers_bin`
+## Hypotheses Regarding `filters_db/header-index` and `block_headers_bin`
 
 | # | Header in `filters_db` | Header in `block_headers_bin` | Description                                                  | Variables                       | Default Outcome (`H₀`)                                         | Accepted or Rejected |
 |---|:----------------------:|:-----------------------------:|--------------------------------------------------------------|-------------------------------------------|----------------------------------------------------------------|:-------------------:|
@@ -16,6 +16,11 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 | 9 | ❌                     | ❌                            | Removing Middle Header from both stores                                | Not Removing Filter Header from store | `OK`                                                           | –                     |
 | 10 | ❌                     | ❌                            | Removing Middle Header from both stores                                | Removing Filter Header from store | `OK`  and that Mid Filter header should be computed and indexed automatically                                                          | –                     |
 | 11 | ✔️                     | ✔️                            | Header exists in both                                        | – | `OK`                                                           | Accepted            |
+
+## Hypotheses Regarding `filters_db/regular/filter-store` and `regular_filter_headers_bin`
+
+
+## Hypotheses Regarding Side Loading of Block AND Filter Headers
 
 ## Conclusions
 
