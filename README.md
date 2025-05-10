@@ -20,3 +20,9 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 ## Conclusions
 
 1. The permitted operations for side-loading are limited to either no-operation (no-op) or extending. This restriction is based on mutual trust, as established in the merge intervals algorithm and the process of overlapping checkpointing.
+2. When side-loading block headers for a given range (e.g., blocks M to N), the corresponding filter headers for the same range (M to N) must also be provided. The conjunction property requires that both block headers and filter headers for the specified range are present and valid. The semantic mapping between block headers and filter headers is assumed to be correct and trusted; however, syntactic validation may still be performed during side-loading to ensure structural correctness.
+
+## Rationale behind Conclusions
+
+1. By explicitly disallowing replace, update, delete operations, and limiting actions to no-op or extending, the logic is simplified and the risk of inconsistencies or malicious behavior during side-loading is significantly reduced. Relying on mutual trust and well-defined procedures (such as merge intervals and overlapping checkpointing) allows the system to coordinate updates safely, while minimizing the attack surface and operational complexity.
+2. Requiring both block headers and filter headers together ensures data consistency and prevents partial or mismatched data from being introduced during side-loading. This maintains the integrity of the chain state and ensures that all necessary components are available for downstream processing or validation.
