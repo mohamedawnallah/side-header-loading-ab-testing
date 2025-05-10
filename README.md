@@ -16,3 +16,7 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 | 9 | ❌                     | ❌                            | Removing Middle Header from both stores                                | Not Removing Filter Header from store | `OK`                                                           | –                     |
 | 10 | ❌                     | ❌                            | Removing Middle Header from both stores                                | Removing Filter Header from store | `OK`  and that Mid Filter header should be computed and indexed automatically                                                          | –                     |
 | 11 | ✔️                     | ✔️                            | Header exists in both                                        | – | `OK`                                                           | Accepted            |
+
+## Conclusions
+
+1. The permitted operations for side-loading are limited to either no-operation (no-op) or extending. This restriction is based on mutual trust, as established in the merge intervals algorithm and the process of overlapping checkpointing.
