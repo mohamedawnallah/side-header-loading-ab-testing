@@ -1,7 +1,7 @@
 # Side-Header Loading A/B Testing Experiments
 This repository serves as a knowledge base documenting my A/B testing experiments. Here, I explore and evaluate various hypotheses, recording methodologies, results, and insights gained throughout the process.
 
-## Hypotheses Regarding `filters_db/header-index`, `block_headers_bin`, and Filter Headers
+## Hypotheses: `filters_db/header-index`, `block_headers_bin`, and `reg_filter_headers_bin`
 
 | #  | Block Header in `filters_db/header-index/<16bit_prefix>/block_hashes_group` | Block Header in `block_headers_bin` | Filter Header in `reg_filter_headers_bin` | **Updating Bitcoin Tip (Manually)** | **Updating Regular Tip (Manually)** | Description | Variables | Default Outcome (`H₀`) | Accepted or Rejected |
 |----|:----------------------------------------:|:-----------------------------------:|:-----------------------------------------:|:-----------------------------------:|:-----------------------------------:|:------------|:----------|:----------------------|:---------------------:|
