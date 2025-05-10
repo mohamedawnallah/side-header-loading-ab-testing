@@ -22,7 +22,7 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 📌 **Note to Self:** For simplicity and for now, let’s ignore the block filter dimension in the index `filters_db/filter-store/regular/<block_hash>` during A/B testing.
 We only need to ensure that the block hash value from the `header-index/regular` key is present as a key in the `filter-store/regular` index, with its value being the corresponding block filter which is variable in size. So this one-to-one mapping property needs(may be not?) to be maintained when side-header loading in case of best block header extended.
 
-## Hypotheses Regarding Side Loading of Block AND Filter Headers
+## Hypotheses Regarding Manual Side Loading of Block AND Filter Headers
 
 ## Conclusions
 
