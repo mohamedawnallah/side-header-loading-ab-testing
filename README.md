@@ -22,7 +22,7 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 
 | #  | `header-index/regular` (best_block_hash) | `filter-store/regular/<best_block_hash>:<filter>` | **Extend Side-Load** | **Expected Behavior** | **Default Outcome (`H₀`)** | Accepted or Rejected |
 |----|:----------------------------------------:|:----------------------------------------:|:--------------------:|:---------------------|:--------------------------|:---------------------:|
-| 1  | ✔️                                       | ✔️                                       | ✔️                   | Block filter for tip exists regardless of `PersistToDisk` config value| `OK` | – |
+| 1  | ✔️                                       | ✔️                                       | ✔️                   | Block filter for tip exists regardless of `PersistToDisk` config value| `OK` | Accepted |
 | 2  | ✔️                                       | ❌                                       | ✔️                   | Dangling reference: tip header present but no filter for best block | Error: Filter not found for best block | – |
 | 3  | ❌                                       | ✔️                                       | ✔️                   | Orphaned filter: filter exists for block not referenced as tip | Ignored/unreachable data; no effect | – |
 | 4  | ✔️ (outdated or stale)                   | ✔️ (newer block filter exists)            | ✔️                   | Filter exists for a block beyond current tip; possible inconsistency | Error: Filter for unknown block | – |
