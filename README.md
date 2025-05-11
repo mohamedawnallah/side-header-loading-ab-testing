@@ -38,7 +38,7 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 | 2  | ❌                     | ❌                    | ✔️ (Fully Indexed) | `OK` and Sync all headers from the chain with no need to index them                                      | Accepted            |
 | 3  | ❌                     | ✔️ (Fully Synced)    | ❌                  | panic: runtime error: slice bounds out of range                                                          | Accepted            |
 | 4  | ❌                     | ✔️                   | ✔️                 | Error creating chain service: unable to read block header: EOF                                           | Accepted            |
-| 5  | ✔️                    | ❌                    | ❌                  | panic: runtime error: slice bounds out of range                                                          | Accepted            |
+| 5  | ✔️ (Fully Synced)                    | ❌                    | ❌                  | panic: runtime error: slice bounds out of range                                                          | Accepted            |
 | 6  | ✔️ (Fully Synced)     | ❌                    | ✔️ (Fully Indexed) | filter checkpoints and filter headers catchup OR Unable to fetch set of candidate checkpoints, trying again | Accepted            |
 | 7  | ✔️ (Fully Synced)     | ✔️ (Fully Synced)    | ❌                  | panic: runtime error: slice bounds out of range                                                          | Accepted            |
 | 8  | ✔️ (Fully Synced)     | ✔️ (Fully Synced)    | ✔️ (Fully Indexed) | `OK` and Sync headers time is almost zero                                                                | Accepted            |
