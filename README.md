@@ -18,7 +18,7 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 | 11 | ✔️                                       | ✔️                                  | ✔️                                      | ❌                                  | ❌                                  | Header exists in both | `OK` | Accepted            |
 
 ## Hypotheses: `filters_db/header-index/regular` and `filters_db/filter-store/regular/<best_block_hash>:<filter>`
-📌 **Note:** The goal for these hypotheses is to determine whether we ever need to send a `getcfilters` message to peers during a extend side-load operation for the best block we know. This ensures that our `filter-store/regular` index is populated with the filter for best_block_hash, if necessary.
+📌 **Note to Self:** The goal for these hypotheses is to determine whether we ever need to send a `getcfilters` message to peers during a extend side-load operation for the best block we know. This ensures that our `filter-store/regular` index is populated with the filter for best_block_hash, if necessary.
 
 📌 **Note:** Block filters located in `filters_db/filter-store/regular/<block_hashes>` index are populated during a [`Rescan`](https://github.com/lightninglabs/neutrino?tab=readme-ov-file#rescan) only if the `PersistToDisk` configuration parameter is set to true (default: false) otherwise only the regular block filter tip exist.
 
