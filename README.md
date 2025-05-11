@@ -29,7 +29,7 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 | 6  | ✔️                                       | ❌                                       | ❌                   | State unchanged (no-op); tip present but filter missing | Dangling reference persists | – |
 | 7  | ❌                                       | ✔️                                       | ❌                   | State unchanged (no-op); filter present but no referenced tip | Orphaned data remains | – |
 
-📌 **Note:** Block filters located in `filters_db/filter-store/regular/<block_hashes>` index are populated during a [`Rescan`](https://github.com/lightninglabs/neutrino?tab=readme-ov-file#rescan) only if the `PersistToDisk` configuration parameter is set to true (default: false) otherwise only the filter header for the genesis block.
+📌 **Note:** Block filters located in `filters_db/filter-store/regular/<block_hashes>` index are populated during a [`Rescan`](https://github.com/lightninglabs/neutrino?tab=readme-ov-file#rescan) only if the `PersistToDisk` configuration parameter is set to true (default: false) otherwise only the filter header for the genesis block is persisted.
 
 📌 **Note:** We don't need to worry about sending a `getcfilters` message to peers during a extend side-load operation for the best block we know see the above note and a/b testing table ^.
 
