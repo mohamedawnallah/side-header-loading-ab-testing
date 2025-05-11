@@ -30,7 +30,6 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 
 📌 **Note:** We don't need to worry about sending a `getcfilters` message to peers during a extend side-load operation for the best block we know see the above note and a/b testing table ^.
 
-
 ## Hypotheses Regarding Manual Side Loading of Block AND Filter Headers
 
 ## Hypotheses Where to Side Loading of Block AND Filter Headers
