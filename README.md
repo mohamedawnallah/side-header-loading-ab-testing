@@ -44,9 +44,9 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 | 8  | ✔️ (Fully Synced)     | ✔️ (Fully Synced)    | ✔️ (Fully Indexed) | `OK` and Sync headers time is almost zero                                                                | Accepted            |
 
 
-## Hypotheses Regarding Where to Side Loading of Block AND Filter Headers
+## Hypotheses Regarding Where to Side Load Block AND Filter Headers
 
-## Hypotheses Regarding When to Side Loading of Block AND Filter Headers
+## Hypotheses Regarding When to Side Load Block AND Filter Headers
 
 ## Conclusions
 
