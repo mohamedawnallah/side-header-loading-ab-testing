@@ -20,10 +20,8 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 ## Hypotheses: `filters_db/header-index/regular` and `filters_db/filter-store/regular/<best_block_hash>:<filter>`
 📌 **Note to Self:** The goal for these hypotheses is to determine whether we ever need to send a `getcfilters` message to peers during a extend side-load operation for the best block we know. This ensures that our `filter-store/regular` index is populated with the filter for best_block_hash, if necessary.
 
-📌 **Note:** Block filters located in `filters_db/filter-store/regular/<block_hashes>` index are populated during a [`Rescan`](https://github.com/lightninglabs/neutrino?tab=readme-ov-file#rescan) only if the `PersistToDisk` configuration parameter is set to true (default: false) otherwise only the regular block filter tip exist.
 
-📌 **Note to Self:** For simplicity and for now, let’s ignore the block filter dimension in the index `filters_db/filter-store/regular/<block_hash>` during A/B testing.
-We only need to ensure that the block hash value from the `header-index/regular` key is present as a key in the `filter-store/regular` index, with its value being the corresponding block filter which is variable in size. So this one-to-one mapping property needs(may be not?) to be maintained when side-header loading in case of best block header extended.
+📌 **Note:** Block filters located in `filters_db/filter-store/regular/<block_hashes>` index are populated during a [`Rescan`](https://github.com/lightninglabs/neutrino?tab=readme-ov-file#rescan) only if the `PersistToDisk` configuration parameter is set to true (default: false) otherwise only the regular block filter tip exist.
 
 ## Hypotheses Regarding Manual Side Loading of Block AND Filter Headers
 
