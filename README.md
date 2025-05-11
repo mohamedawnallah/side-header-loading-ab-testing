@@ -19,15 +19,15 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 
 ## Hypotheses: `filters_db/header-index/regular` and `filters_db/filter-store/regular/<best_block_hash>:<filter>`
 
-| #  | `header-index/regular` (best_block_hash) | `filter-store/regular/<best_block_hash>:<filter>` | **Extend Side-Load** | **Expected Behavior** | **Default Outcome (`H₀`)** | Accepted or Rejected |
-|----|:----------------------------------------:|:----------------------------------------:|:--------------------:|:---------------------|:--------------------------|:---------------------:|
-| 1  | ✔️                                       | ✔️                                       | ✔️                   | Block filter for tip exists regardless of `PersistToDisk` config value| `OK` | Rejected (PersistToDisk: false only the genesis block filter in `filter-store/regular` index |
-| 2  | ✔️                                       | ❌                                       | ✔️                   | Dangling reference: tip header present but no filter for best block | `OK` | Accepted |
-| 3  | ❌                                       | ✔️                                       | ✔️                   | Orphaned filter: filter exists for block not referenced as tip | `OK`  | Accepted |
-| 4  | ✔️ (outdated or stale)                   | ✔️ (newer block filter exists)            | ✔️                   | Filter exists for a block beyond current tip; possible inconsistency | Error: Filter for unknown block | – |
-| 5  | ❌                                       | ❌                                       | ✔️                   | Both tip and filter missing; empty or uninitialized state | Initialization required | – |
-| 6  | ✔️                                       | ❌                                       | ❌                   | State unchanged (no-op); tip present but filter missing | Dangling reference persists | – |
-| 7  | ❌                                       | ✔️                                       | ❌                   | State unchanged (no-op); filter present but no referenced tip | Orphaned data remains | – |
+| #  | `header-index/regular` (best_block_hash) | `filter-store/regular/<best_block_hash>:<filter>` | **Extend Side-Load** | **Expected Behavior** | **Default Outcome (`H₀`)** | Accepted or Rejected | **Cause of Null Hypothesis Rejection** |
+|----|:----------------------------------------:|:------------------------------------------------:|:--------------------:|:---------------------|:--------------------------|:---------------------:|:---------------------|
+| 1  | ✔️                                       | ✔️                                               | ✔️                   | Block filter for tip exists regardless of `PersistToDisk` config value | `OK` | Rejected | When `PersistToDisk` is set to `false` (default), only the genesis block filter is stored in the `filter-store/regular` index. Filters for other blocks will not be persisted. |
+| 2  | ✔️                                       | ❌                                               | ✔️                   | Dangling reference error: tip header present but no filter for best block | `OK` | Rejected | same as ^ |
+| 3  | ❌                                       | ✔️                                               | ✔️                   | Orphaned filter: filter exists for block not referenced as tip | `OK` | Accepted | – |
+| 4  | ✔️ (outdated or stale)                   | ✔️ (newer block filter exists)                   | ✔️                   | Filter exists for a block beyond current tip; possible inconsistency | Error: Filter for unknown block | – | – |
+| 5  | ❌                                       | ❌                                               | ✔️                   | Both tip and filter missing; empty or uninitialized state | Initialization required | – | – |
+| 6  | ✔️                                       | ❌                                               | ❌                   | State unchanged (no-op); tip present but filter missing | Dangling reference persists | – | – |
+| 7  | ❌                                       | ✔️                                               | ❌                   | State unchanged (no-op); filter present but no referenced tip | Orphaned data remains | – | – |
 
 📌 **Note:** Block filters located in `filters_db/filter-store/regular/<block_hashes>` index are populated during a [`Rescan`](https://github.com/lightninglabs/neutrino?tab=readme-ov-file#rescan) only if the `PersistToDisk` configuration parameter is set to true (default: false) otherwise only the filter header for the genesis block is persisted.
 
