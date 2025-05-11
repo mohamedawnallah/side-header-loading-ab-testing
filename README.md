@@ -23,7 +23,7 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 |----|:----------------------------------------:|:----------------------------------------:|:--------------------:|:---------------------|:--------------------------|:---------------------:|
 | 1  | ✔️                                       | ✔️                                       | ✔️                   | Block filter for tip exists regardless of `PersistToDisk` config value| `OK` | Accepted |
 | 2  | ✔️                                       | ❌                                       | ✔️                   | Dangling reference: tip header present but no filter for best block | `OK` | Accepted |
-| 3  | ❌                                       | ✔️                                       | ✔️                   | Orphaned filter: filter exists for block not referenced as tip | Ignored/unreachable data; no effect | – |
+| 3  | ❌                                       | ✔️                                       | ✔️                   | Orphaned filter: filter exists for block not referenced as tip | `OK`  | Accepted |
 | 4  | ✔️ (outdated or stale)                   | ✔️ (newer block filter exists)            | ✔️                   | Filter exists for a block beyond current tip; possible inconsistency | Error: Filter for unknown block | – |
 | 5  | ❌                                       | ❌                                       | ✔️                   | Both tip and filter missing; empty or uninitialized state | Initialization required | – |
 | 6  | ✔️                                       | ❌                                       | ❌                   | State unchanged (no-op); tip present but filter missing | Dangling reference persists | – |
