@@ -25,6 +25,7 @@ import (
 	"github.com/lightninglabs/neutrino/headerfs"
 )
 
+var shouldPersistToDisk = flag.Bool("persist_to_disk", false, "Persist the filter to the disk")
 var shouldRescan = flag.Bool("rescan", false, "Perform blockchain rescan for script pubkey")
 var scriptPubKeyHex = flag.String("scriptpubkey", "", "Hex-encoded script pubkey to scan for")
 
@@ -94,7 +95,7 @@ func main() {
 		DataDir:       neutrinoDataDir,
 		Database:      db,
 		ChainParams:   chaincfg.TestNet4Params,
-		PersistToDisk: false,
+		PersistToDisk: *shouldPersistToDisk,
 	}
 
 	// Create the chain service
