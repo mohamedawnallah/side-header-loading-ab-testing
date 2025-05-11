@@ -33,6 +33,10 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 
 ## Hypotheses Regarding Manual Side Loading of Block AND Filter Headers
 
+## Hypotheses Where to Side Loading of Block AND Filter Headers
+
+## Hypotheses When to Side Loading of Block AND Filter Headers
+
 ## Conclusions
 
 1. **Permitted Operations:** The permitted operations for side-loading are limited to either no-operation (no-op) or extending. This enforces the monotonicity/append-only property, meaning the state can only remain the same or grow, but never decrease or revert. This restriction is based on mutual trust, as established in the merge intervals algorithm and the process of overlapping checkpointing.
