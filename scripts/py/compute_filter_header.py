@@ -8,20 +8,20 @@ def double_sha256(data: bytes) -> bytes:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Calculate filter header using double SHA256 of filter + previous header."
+        description="Calculate filter header using double SHA256 of compact filter + previous filter header."
     )
 
     # Positional arguments (required by default)
     parser.add_argument(
         "filter",
         type=str,
-        help="Hex-encoded filter (little-endian input)"
+        help="Hex-encoded compact filter"
     )
 
     parser.add_argument(
         "prev_header",
         type=str,
-        help="Hex-encoded previous filter header (little-endian input)"
+        help="Hex-encoded previous filter header (little-endian only)"
     )
 
     args = parser.parse_args()
