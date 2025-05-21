@@ -2,7 +2,7 @@ module example
 
 go 1.24.2
 
-replace github.com/lightninglabs/neutrino => /home/test/Desktop/neutrino
+replace github.com/lightninglabs/neutrino => /home/dev/neutrino
 
 replace github.com/btcsuite/btcd/btcec => github.com/btcsuite/btcd/btcec/v2 v2.2.0
 

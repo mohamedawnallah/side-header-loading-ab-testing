@@ -101,14 +101,16 @@ func main() {
 	defer db.Close()
 
 	// Configure the Neutrino client.
+	blkHeadersSrc := fmt.Sprintf("%s/.neutrino/block_headers.bin", homeDir)
+	fHeadersSrc := fmt.Sprintf("%s/.neutrino/reg_filter_headers.bin", homeDir)
 	config := neutrino.Config{
 		DataDir:       neutrinoDataDir,
 		Database:      db,
 		ChainParams:   chaincfg.TestNet4Params,
 		PersistToDisk: *shouldPersistToDisk,
 		HeadersImport: &neutrino.HeadersImportConfig{
-			BlockHeadersSource:      "/home/test/.neutrino/block_headers.bin",
-			FilterHeadersSource:     "/home/test/.neutrino/reg_filter_headers.bin",
+			BlockHeadersSource:      blkHeadersSrc,
+			FilterHeadersSource:     fHeadersSrc,
 			OverlapMode:             chainimport.AppendOnly,
 			DivergenceMode:          chainimport.ForceReconcile,
 			BeyondImportRangeMode:   chainimport.PreserveBeyond,
