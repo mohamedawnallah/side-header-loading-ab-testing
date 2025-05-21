@@ -46,7 +46,7 @@ This repository serves as a knowledge base documenting my A/B testing experiment
 
 ## Hypotheses Regarding When and Where to Side Load Block AND Filter Headers
 
-## Conclusions
+## Conclusions (may be outdated)
 
 1. **Permitted Operations on Neutrino Headers Store:** The permitted operations for side-loading to neutrino headers store are limited to either no-operation (no-op) or extending. This enforces the monotonicity/append-only property, meaning the state can only remain the same or grow, but never decrease or revert. This restriction is based on mutual trust, as established in the merge intervals algorithm and the process of overlapping checkpointing.
 2. **Conjunction Property:** When side-loading block headers for a given range (e.g., blocks M to N), the corresponding filter headers for the same range (M to N) must also be provided. The conjunction property requires that both block headers and filter headers for the specified range are present and valid. The semantic mapping between block headers and filter headers is assumed to be correct and trusted; however, syntactic, chaining, and sanity validation may still be performed during side-loading to ensure structural correctness.
