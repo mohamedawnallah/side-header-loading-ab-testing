@@ -22,6 +22,7 @@ import (
 	"github.com/btcsuite/btcwallet/walletdb"
 	_ "github.com/btcsuite/btcwallet/walletdb/bdb" // <-- ADD THIS!
 	"github.com/lightninglabs/neutrino"
+	"github.com/lightninglabs/neutrino/chainimport"
 	"github.com/lightninglabs/neutrino/headerfs"
 )
 
@@ -50,7 +51,16 @@ func setupLogger(logPath string, level btclog.Level) (btclog.Logger, *os.File) {
 func main() {
 	flag.Parse()
 	home := os.Getenv("HOME")
-	logPath := fmt.Sprintf("%s/.neutrino/neutrino.log", home)
+	neutrinoDir := fmt.Sprintf("%s/.neutrino", home)
+
+	// Create .neutrino directory if it doesn't exist
+	if err := os.MkdirAll(neutrinoDir, 0700); err != nil {
+		fmt.Fprintf(os.Stderr, "Failed to create directory %s: %v\n",
+			neutrinoDir, err)
+		os.Exit(1)
+	}
+
+	logPath := fmt.Sprintf("%s/neutrino.log", neutrinoDir)
 	logger, logFile := setupLogger(logPath, btclog.LevelDebug)
 	defer logFile.Close()
 
@@ -90,12 +100,20 @@ func main() {
 	}
 	defer db.Close()
 
-	// Configure the Neutrino client
+	// Configure the Neutrino client.
 	config := neutrino.Config{
 		DataDir:       neutrinoDataDir,
 		Database:      db,
 		ChainParams:   chaincfg.TestNet4Params,
 		PersistToDisk: *shouldPersistToDisk,
+		HeadersImport: &neutrino.HeadersImportConfig{
+			BlockHeadersSource:      "/home/test/.neutrino/block_headers.bin",
+			FilterHeadersSource:     "/home/test/.neutrino/reg_filter_headers.bin",
+			OverlapMode:             chainimport.AppendOnly,
+			DivergenceMode:          chainimport.ForceReconcile,
+			BeyondImportRangeMode:   chainimport.PreserveBeyond,
+			WriteBatchSizePerRegion: 10000,
+		},
 	}
 
 	// Create the chain service
